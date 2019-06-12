@@ -13,10 +13,11 @@ class CreateSalesTable extends Migration
      */
     public function up()
     {
-        // create a pivot table Save/Customers
+        // todo: create a pivot table Sale/Customers
+        // question: can sale have more than 1 boat?
         Schema::create('sales', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
+            $table->timestamps(); // saleDate = created_at
             $table->enum('saleStatus', ['quoted', 'pending', 'delivered-completed']);
             $this->decimal('salePrice', 8, 2);
         });
