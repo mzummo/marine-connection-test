@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Boat;
+use App\Http\Resources\Boat as BoatResource;
 use Illuminate\Http\Request;
 
 class BoatController extends Controller
@@ -14,7 +15,7 @@ class BoatController extends Controller
      */
     public function index()
     {
-        //
+        return BoatResource::collection(Boat::all());
     }
 
     /**
@@ -35,7 +36,9 @@ class BoatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $boat = new Boat($request->all());
+        $boat->save();
+        return new BoatResource($boat);
     }
 
     /**
@@ -46,7 +49,7 @@ class BoatController extends Controller
      */
     public function show(Boat $boat)
     {
-        //
+        return new BoatResource($boat);
     }
 
     /**
@@ -57,7 +60,11 @@ class BoatController extends Controller
      */
     public function edit(Boat $boat)
     {
-        //
+        $boat
+            ->fill($request->all())
+            ->save()
+        ;
+        return new BoatResource($boat);
     }
 
     /**

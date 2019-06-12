@@ -18,12 +18,12 @@ class CreateBoatsTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
 //            $table->date('year');
-            $table->integer('year', 4);
+            $table->year('year');
             $table->string('make');
             $table->string('model');
             $table->string('serial_number');
             $table->string('stock_number');
-            $table->string('equipment_list');
+            $table->string('equipment_list')->nullable();
             $table->decimal('list_price', 8, 2);
         });
     }

@@ -1,5 +1,7 @@
 <?php
-
+// todo: create a seperate namespace/dir for API controllers
+// todo: return response.json so we can handle errors in the http messages (200, 201, 400, 500, etc)
+// todo: create validation
 namespace App\Http\Controllers;
 
 use App\Customer;
@@ -15,8 +17,6 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        // todo: create a seperate namespace/dir for API controllers
-        // todo return response.json so we can handle errors in the http messages (200, 201, 400, 500, etc)
         return CustomerResource::collection(Customer::all());
     }
 
@@ -39,6 +39,7 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         $customer = new Customer($request->all());
+        $customer->save();
         return new CustomerResource($customer);
     }
 
@@ -77,6 +78,7 @@ class CustomerController extends Controller
             ->fill($request->all())
             ->save()
         ;
+        return new CustomerResource($customer);
     }
 
     /**

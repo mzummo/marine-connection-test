@@ -29,4 +29,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // todo: namespace API Controllers and pass in API namespace to use so we dont need to use API\... each time
 Route::resource('customer', 'CustomerController'); // return resource and collections from within controller
-
+Route::resource('boat', 'BoatController');

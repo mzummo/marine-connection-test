@@ -19,7 +19,7 @@ class CreateSalesTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps(); // saleDate = created_at
             $table->enum('sale_status', ['quoted', 'pending', 'delivered-completed']);
-            $this->decimal('sale_price', 8, 2);
+            $table->decimal('sale_price', 8, 2);
         });
     }
 
