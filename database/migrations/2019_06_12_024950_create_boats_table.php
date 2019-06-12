@@ -21,11 +21,10 @@ class CreateBoatsTable extends Migration
             $table->integer('year', 4);
             $table->string('make');
             $table->string('model');
-            $table->string('serialNumber');
-            $table->string('stockNumber');
-            $table->string('equipmentList');
-            $table->string('equipmentList');
-            $table->decimal('listPrice', 8, 2);
+            $table->string('serial_number');
+            $table->string('stock_number');
+            $table->string('equipment_list');
+            $table->decimal('list_price', 8, 2);
         });
     }
 

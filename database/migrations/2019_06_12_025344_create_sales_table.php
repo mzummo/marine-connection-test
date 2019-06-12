@@ -18,8 +18,8 @@ class CreateSalesTable extends Migration
         Schema::create('sales', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps(); // saleDate = created_at
-            $table->enum('saleStatus', ['quoted', 'pending', 'delivered-completed']);
-            $this->decimal('salePrice', 8, 2);
+            $table->enum('sale_status', ['quoted', 'pending', 'delivered-completed']);
+            $this->decimal('sale_price', 8, 2);
         });
     }
 

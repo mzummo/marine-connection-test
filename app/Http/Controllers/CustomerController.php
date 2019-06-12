@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Customer;
+use App\Http\Resources\Customer as CustomerResource;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
@@ -14,7 +15,9 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+        // todo: create a seperate namespace/dir for API controllers
+        // todo return response.json so we can handle errors in the http messages (200, 201, 400, 500, etc)
+        return CustomerResource::collection(Customer::all());
     }
 
     /**
@@ -24,7 +27,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        // not used
     }
 
     /**
@@ -35,7 +38,8 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $customer = new Customer($request->all());
+        return new CustomerResource($customer);
     }
 
     /**
@@ -46,7 +50,7 @@ class CustomerController extends Controller
      */
     public function show(Customer $customer)
     {
-        //
+        return new CustomerResource($customer);
     }
 
     /**
@@ -57,7 +61,7 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        //
+        // not used
     }
 
     /**
@@ -69,7 +73,10 @@ class CustomerController extends Controller
      */
     public function update(Request $request, Customer $customer)
     {
-        //
+        $customer
+            ->fill($request->all())
+            ->save()
+        ;
     }
 
     /**
@@ -80,6 +87,6 @@ class CustomerController extends Controller
      */
     public function destroy(Customer $customer)
     {
-        //
+        $customer->delete();
     }
 }
