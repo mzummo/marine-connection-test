@@ -60,11 +60,7 @@ class BoatController extends Controller
      */
     public function edit(Boat $boat)
     {
-        $boat
-            ->fill($request->all())
-            ->save()
-        ;
-        return new BoatResource($boat);
+        // not used
     }
 
     /**
@@ -76,7 +72,11 @@ class BoatController extends Controller
      */
     public function update(Request $request, Boat $boat)
     {
-        //
+        $boat
+            ->fill($request->all())
+            ->save()
+        ;
+        return new BoatResource($boat);
     }
 
     /**

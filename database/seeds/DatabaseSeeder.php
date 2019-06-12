@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
 //            UsersTableSeeder::class,
-            CustomerTableSeeder::class
+//            CustomerTableSeeder::class
         ]);
 
     }

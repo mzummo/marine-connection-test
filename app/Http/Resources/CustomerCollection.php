@@ -16,9 +16,4 @@ class CustomerCollection extends ResourceCollection
     {
         return parent::toArray($request);
     }
-
-    public function boot()
-    {
-        Resource::withoutWrapping();
-    }
 }
