@@ -13,4 +13,10 @@ class Customer extends Model
     // https://github.com/mzummo/sports and other private repos in bitbucket
     // https://bitbucket.org/nextserve/nextserve-base/
     protected $fillable = ['first_name','last_name','email','phone','address1', 'address2'];
+
+    public function sales()
+    {
+        return $this->belongsToMany('App\Sale');
+    }
+
 }
