@@ -18,5 +18,4 @@ class Customer extends Model
     {
         return $this->belongsToMany('App\Sale');
     }
-
 }
